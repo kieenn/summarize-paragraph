@@ -1,2 +1,0 @@
-# summarize-paragraph
-nlp report
