@@ -1,2 +1,7 @@
 flask
 python-dotenv
+bs4
+beautifulsoup4
+nltk
+scikit-learn
+sumy
