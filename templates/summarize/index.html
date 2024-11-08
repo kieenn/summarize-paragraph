@@ -1,0 +1,63 @@
+{%extends 'base/base.html'%}
+
+{% block title %}
+summarize
+{% endblock %}
+
+{%block content%}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Text Summarizer</h5>
+                    <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex">
+                            <div class="select-language me-2">
+                                <select class="form-select language-select">
+                                    <option value="english">English</option>
+                                    <!-- <option value="spanish">Viet Nam</option> -->
+                                </select>
+                            </div>
+                            <div class="select-summary me-2">
+                                <select class="form-select summary-select">
+                                    <option value="summary1">Summary 1</option>
+                                    <option value="summary2">Summary 2</option>
+                                    <option value="summary3">Summary 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <textarea class="form-control paragraph-box border shadow-sm rounded" placeholder="Paste your text here" rows="15"></textarea>
+                        
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                 <p class="text-info1 word-sentence-count fw-semibold"></p>
+                                <p class="message text-danger fw-bold"></p>
+                                <div>
+                                    <button class="btn btn-outline-primary me-2" title="Copy" aria-label="Copy text"> 
+                                        <i class="fa-regular fa-copy"></i>
+                                    </button>
+                                    <button class="btn btn-outline-primary" title="Paste" aria-label="Paste text"> 
+                                        <i class="fa-regular fa-paste"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <textarea class="form-control result-box border shadow-sm rounded" placeholder="Your summarized text here" rows="15" readonly></textarea>
+                           
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <p class="text-info2 word-sentence-count fw-semibold"></p>
+                                
+                                <div>
+                                    <button class="btn btn-outline-primary" title="Copy"> <i class="fa-regular fa-copy"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <button class="btn btn-outline-primary summarize-button">Summarize</button>
+                    </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,2 +1,2 @@
-pipenv
-djangorestframework
+flask
+python-dotenv
