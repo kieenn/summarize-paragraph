@@ -5,3 +5,4 @@ beautifulsoup4
 nltk
 scikit-learn
 sumy
+numpy ==1.26.4
