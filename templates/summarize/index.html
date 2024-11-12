@@ -1,63 +1,76 @@
-{%extends 'base/base.html'%}
+{% extends 'base/base.html' %}
 
 {% block title %}
-summarize
+    Text Summarizer
 {% endblock %}
 
-{%block content%}
-<div class="container mt-5">
+{% block content %}
+<div class="container mt-5 mb-5">
     <div class="row justify-content-center">
-                <div class="card-body">
-                    <h5 class="card-title text-center mb-4">Text Summarizer</h5>
-                    <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex">
-                            <div class="select-language me-2">
-                                <select class="form-select language-select">
-                                    <option value="english">English</option>
-                                    <!-- <option value="spanish">Viet Nam</option> -->
-                                </select>
-                            </div>
-                            <div class="select-summary me-2">
-                                <select class="form-select summary-select">
-                                    <option value="summary1">Summary 1</option>
-                                    <option value="summary2">Summary 2</option>
-                                    <option value="summary3">Summary 3</option>
-                                </select>
+            <div class="card-body">
+                <h5 class="card-title text-center mb-4">Text Summarizer</h5>
+                <div class="col-md-12 mb-4">
+                    <div class="d-flex flex-row align-items-start">
+                        <div class="mb-3 w-100 me-3">
+                            <label for="languageSelect" class="form-label fw-bold">Select Language:</label>
+                            <select class="form-select language-select" id="languageSelect">
+                                <option value="english">English</option>
+                                <!-- <option value="spanish">Viet Nam</option> -->
+                            </select>
+                        </div>
+                        <div class="mb-3 w-100 me-3">
+                            <label for="summarySelect" class="form-label fw-bold">Select Summary Type:</label>
+                            <select class="form-select summary-select" id="summarySelect">
+                                <option value="summary1">Summary 1</option>
+                                {# <option value="summary2">Summary 2</option> #}
+                                {# <option value="summary3">Summary 3</option> #}
+                            </select>
+                        </div>
+                        <div class="w-100">
+                            <label for="summaryLength" class="form-label fw-bold">Summary Length:</label>
+                            <div class="d-flex align-items-center mt-1">
+                                <span class="me-2 text-muted">Short</span>
+                                <input type="range" class="form-range" id="summaryLength" min="3" max="11" step="2" value="3" aria-label="Summary length gauge">
+                                <span class="ms-2 text-muted">Long</span>
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-5">
-                        <div class="col-md-6">
-                            <textarea class="form-control paragraph-box border shadow-sm rounded" placeholder="Paste your text here" rows="15"></textarea>
-                        
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                 <p class="text-info1 word-sentence-count fw-semibold"></p>
-                                <p class="message text-danger fw-bold"></p>
-                                <div>
-                                    <button class="btn btn-outline-primary me-2" title="Copy" aria-label="Copy text"> 
-                                        <i class="fa-regular fa-copy"></i>
-                                    </button>
-                                    <button class="btn btn-outline-primary" title="Paste" aria-label="Paste text"> 
-                                        <i class="fa-regular fa-paste"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <textarea class="form-control result-box border shadow-sm rounded" placeholder="Your summarized text here" rows="15" readonly></textarea>
-                           
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <p class="text-info2 word-sentence-count fw-semibold"></p>
-                                
-                                <div>
-                                    <button class="btn btn-outline-primary" title="Copy"> <i class="fa-regular fa-copy"></i></button>
-                                </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md-6">
+                        <textarea class="form-control paragraph-box border shadow-sm rounded" placeholder="Paste your text here" rows="15"></textarea>
+                        <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+                            <p class="text-info1 word-sentence-count fw-semibold"></p>
+                            <p class="message text-danger fw-bold"></p>
+                            <div class="text-end">
+                                <button class="btn btn-outline-primary me-2" title="Clear" aria-label="Clear text"> 
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                                <button class="btn btn-outline-primary me-2" title="Copy" aria-label="Copy text"> 
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                                <button class="btn btn-outline-primary" title="Paste" aria-label="Paste text"> 
+                                    <i class="fa-regular fa-paste"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-outline-primary summarize-button">Summarize</button>
+                    <div class="col-md-6">
+                        <textarea class="form-control result-box border shadow-sm rounded" placeholder="Your summarized text here" rows="15" readonly></textarea>
+                        <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+                            <p class="text-info2 word-sentence-count fw-semibold"></p>
+                            <div class="text-end">
+                                <button class="btn btn-outline-primary" title="Copy" aria-label="Copy text"> 
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-4 mb-5">
+                    <button class="btn btn-primary summarize-button">Summarize</button>
+                </div>
+            </div>
+        </div>
 </div>
-{%endblock%}
+{% endblock %}
